@@ -1,5 +1,7 @@
 # Haye
 
+![](http://i1117.photobucket.com/albums/k594/thetutlage/poppins-1_zpsg867sqyl.png)
+
 [![Version](https://img.shields.io/npm/v/haye.svg?style=flat-square)](https://www.npmjs.com/package/haye)
 [![Build Status](https://img.shields.io/travis/poppinss/haye/master.svg?style=flat-square)](https://travis-ci.org/poppinss/haye)
 [![Coverage Status](https://img.shields.io/coveralls/poppinss/haye/master.svg?style=flat-square)](https://coveralls.io/github/poppinss/haye?branch=master)
