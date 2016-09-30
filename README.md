@@ -1,5 +1,12 @@
 # Haye
 
+[![Version](https://img.shields.io/npm/v/haye.svg?style=flat-square)](https://www.npmjs.com/package/haye)
+[![Build Status](https://img.shields.io/travis/poppinss/haye/master.svg?style=flat-square)](https://travis-ci.org/poppinss/haye)
+[![Coverage Status](https://img.shields.io/coveralls/poppinss/haye/master.svg?style=flat-square)](https://coveralls.io/github/poppinss/haye?branch=master)
+[![Downloads](https://img.shields.io/npm/dt/haye.svg?style=flat-square)](https://www.npmjs.com/package/haye)
+[![License](https://img.shields.io/npm/l/haye.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Support AdonisJs](https://img.shields.io/badge/support-adonisjs-brightgreen.svg?style=flat-square)](https://www.patreon.com/adonisframework)
+
 Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Javascript. Quite often you want your users to define some values using an **expressive string expression** instead of nesting values in an **array** or **object**.
 
 > Want to build production ready apps with joy similar to ROR and Laravel. Try [AdonisJs](http://adonisjs.com/) an opinionated MVC framework for Node.js.
