@@ -4,7 +4,7 @@
   "description": "Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Javascript. Quite often you want your users to define some values using an expressive string expression instead of nesting values in an array or object.",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha test",
+    "test": "istanbul cover _mocha --report lcovonly -- -R spec test && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "coverage": "istanbul cover _mocha test",
     "lint": "standard"
   },
@@ -24,6 +24,7 @@
     "cz-conventional-changelog": "^1.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
+    "mocha-lcov-reporter": "^1.2.0",
     "standard": "^8.3.0"
   },
   "config": {
