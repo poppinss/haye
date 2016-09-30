@@ -13,12 +13,12 @@ Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Ja
 
 > Want to build production ready apps with joy similar to ROR and Laravel. Try [AdonisJs](http://adonisjs.com/) an opinionated MVC framework for Node.js.
 
-Expressive strings are great for Humans but not for machines/programs. Using `haye` you can convert them to machine readable objects/arrays.
+Expressive strings are perfect for Humans but not for machines/programs using `haye` you can convert them to computer readable objects/arrays.
 
 
 ## Expressions
 
-Their are 2 types of string expressions `haye` will parse and return an array or object (based on your preference). 
+There are two types of string expressions `haye` will parse and return an array or object (based on your preference). 
 
 ### Pipe Expression
 
@@ -51,7 +51,7 @@ Returns
 
 #### Pipe To JSON
 
-Also you can change the output format from an array to an object.
+Also, you can change the output format from an array to an object.
 
 
 ```javascript
@@ -98,7 +98,7 @@ The `toJSON` method on the same expression will return
 ```
 
 ### QS Expression
-The reason I call it a `QS` expression, since it is quite similar to the query string instead you use `,` as a seperator instea of `&`.
+The reason I call it a `QS` expression, since it is quite similar to the query string just you use `,` as a separator instead of `&`.
 
 #### QS To Array
 
@@ -128,7 +128,7 @@ Returns
 
 #### QS To JSON
 
-Ofcourse you can get values back to a flat Object too.
+Of course, you can get values back to a flat Object too.
 
 ```javascript
 const haye = require('haye')
@@ -148,7 +148,7 @@ Returns
 ```
 
 #### Multiple Values
-You can also define multiple values and they will be returned back as array.
+You can also define multiple values, and they will be returned as an array.
 
 ```javascript
 const haye = require('haye')
@@ -176,13 +176,13 @@ And `toJSON` will return a flat object with likes as an array.
 ```javascript
 {
   username: 'virk',
-  likes: ['javascriot', 'ruby', 'haskell']
+  likes: ['javascript', 'ruby', 'haskell']
 }
 ```
 
 ## Values To Expression (VICE-VERSA)
 
-Also you can convert your arrays and objects back to `pipe` or `QS` expression.
+Also, you can convert your arrays and objects back to `pipe` or `QS` expression.
 
 ### Pipe Expression
 
