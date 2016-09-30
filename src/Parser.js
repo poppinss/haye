@@ -127,7 +127,7 @@ class Parser {
   /**
    * Parses an array to a piped string
    *
-   * @param   {Arrau} values
+   * @param   {Array} values
    *
    * @return  {String}
    *
