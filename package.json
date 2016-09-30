@@ -1,6 +1,6 @@
 {
   "name": "haye",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Javascript. Quite often you want your users to define some values using an expressive string expression instead of nesting values in an array or object.",
   "main": "index.js",
   "scripts": {
