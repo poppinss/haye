@@ -30,5 +30,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poppinss/haye.git"
+  },
+  "bugs": {
+    "url": "https://github.com/poppinss/haye/issues"
+  },
+  "homepage": "https://github.com/poppinss/haye#readme"
 }
