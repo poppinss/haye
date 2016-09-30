@@ -8,7 +8,11 @@
     "coverage": "istanbul cover _mocha test",
     "lint": "standard"
   },
-  "keywords": ["string-parser", "indicative", "expression"],
+  "keywords": [
+    "string-parser",
+    "indicative",
+    "expression"
+  ],
   "author": "amanvirk,adonisjs",
   "license": "MIT",
   "dependencies": {
@@ -17,8 +21,25 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
+    "cz-conventional-changelog": "^1.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
     "standard": "^8.3.0"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poppinss/haye.git"
+  },
+  "bugs": {
+    "url": "https://github.com/poppinss/haye/issues"
+  },
+  "homepage": "https://github.com/poppinss/haye#readme"
 }
