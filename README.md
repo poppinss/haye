@@ -11,10 +11,10 @@ The keys/values inside the expression cannot have any of the reserved keywords, 
 <summary> Benchmarks </summary>
 <pre>
 <code>
-747,298 op/s » haye #pipeToArray
-363,152 op/s » haye #pipeToJson
-742,310 op/s » haye #qsToArray
-349,075 op/s » haye #qsToJson
+haye #pipeToArray x 741,030 ops/sec ±0.97% (90 runs sampled)
+haye #pipeToJson x 313,101 ops/sec ±0.95% (87 runs sampled)
+haye #qsToArray x 698,688 ops/sec ±0.74% (91 runs sampled)
+haye #qsToJson x 303,482 ops/sec ±1.10% (89 runs sampled)
 </code>
 </pre>
 </details>
