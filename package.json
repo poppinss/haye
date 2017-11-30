@@ -1,31 +1,32 @@
 {
   "name": "haye",
   "version": "1.0.1",
-  "description": "Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Javascript. Quite often you want your users to define some values using an expressive string expression instead of nesting values in an array or object.",
+  "description": "Haye is a super fast string based expression parser for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha --report lcovonly -- -R spec test && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "coverage": "istanbul cover _mocha test",
-    "lint": "standard"
+    "pretest": "npm run lint",
+    "test": "japa",
+    "lint": "standard src/**/*.js index.js test/**/*.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "benchmark": "matcha benchmarks/index.js"
   },
   "keywords": [
     "string-parser",
     "indicative",
     "expression"
   ],
-  "author": "amanvirk,adonisjs",
+  "author": "virk",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.16.2"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
-    "cz-conventional-changelog": "^1.2.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.1.0",
-    "mocha-lcov-reporter": "^1.2.0",
-    "standard": "^8.3.0"
+    "coveralls": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "japa": "^1.0.5",
+    "japa-cli": "^1.0.1",
+    "matcha": "^0.7.0",
+    "standard": "^10.0.3"
   },
   "config": {
     "commitizen": {
