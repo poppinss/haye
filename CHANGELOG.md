@@ -1,3 +1,13 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/poppinss/haye/compare/v1.0.1...v2.0.0) (2017-12-01)
+
+
+### Features
+
+* rewrite ([d825339](https://github.com/poppinss/haye/commit/d825339))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/poppinss/haye/compare/v1.0.0...v1.0.1) (2016-09-30)
 

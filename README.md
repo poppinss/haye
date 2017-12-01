@@ -1,273 +1,169 @@
 # Haye
 
-![](http://i1117.photobucket.com/albums/k594/thetutlage/poppins-1_zpsg867sqyl.png)
+Haye is a simple super fast string expression parser. In support `pipe` and `qs` string expressions ( explained below ).
 
-[![Version](https://img.shields.io/npm/v/haye.svg?style=flat-square)](https://www.npmjs.com/package/haye)
-[![Build Status](https://img.shields.io/travis/poppinss/haye/master.svg?style=flat-square)](https://travis-ci.org/poppinss/haye)
-[![Coverage Status](https://img.shields.io/coveralls/poppinss/haye/master.svg?style=flat-square)](https://coveralls.io/github/poppinss/haye?branch=master)
-[![Downloads](https://img.shields.io/npm/dt/haye.svg?style=flat-square)](https://www.npmjs.com/package/haye)
-[![License](https://img.shields.io/npm/l/haye.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Support AdonisJs](https://img.shields.io/badge/support-adonisjs-brightgreen.svg?style=flat-square)](https://www.patreon.com/adonisframework)
+> **Limitations**
+The keys/values inside the expression cannot have any of the reserved keywords, otherwise parser will mis-behave.
 
-Haye is an expressive string syntax to Array/Object and Vice-Versa parser for Javascript. Quite often you want your users to define some values using an **expressive string expression** instead of nesting values in an **array** or **object**.
+---
 
-> Want to build production ready apps with joy similar to ROR and Laravel. Try [AdonisJs](http://adonisjs.com/) an opinionated MVC framework for Node.js.
+<details>
+<summary> Benchmarks </summary>
+<pre>
+<code>
+haye #pipeToArray x 741,030 ops/sec ±0.97% (90 runs sampled)
+haye #pipeToJson x 313,101 ops/sec ±0.95% (87 runs sampled)
+haye #qsToArray x 698,688 ops/sec ±0.74% (91 runs sampled)
+haye #qsToJson x 303,482 ops/sec ±1.10% (89 runs sampled)
+</code>
+</pre>
+</details>
 
-Expressive strings are great for Humans but not for machines/programs. Using `haye` you can convert them to machine readable objects/arrays.
+<details>
+<summary> Comparison with 1.0.1 </summary>
+<pre>
+<code>
+219,138 op/s » haye #pipeToArray #legacy
+170,068 op/s » haye #pipeToJson #legacy
+147,594 op/s » haye #qsToArray #legacy
+121,094 op/s » haye #qsToJson #legacy
 
 
-## Expressions
+747,298 op/s » haye #pipeToArray
+363,152 op/s » haye #pipeToJson
+742,310 op/s » haye #qsToArray
+349,075 op/s » haye #qsToJson
+</code>
+</pre>
+</details>
 
-Their are 2 types of string expressions `haye` will parse and return an array or object (based on your preference). 
+<details>
+<summary> Upgrading from 1.0.1 </summary>
+<p> There are couple of breaking changes from 1.0.1 to 2.x.x </p>
 
-### Pipe Expression
+<ol>
+<li>
+  All methods to convert <code>Arrays</code> and <code>Objects</code> have been removed.
+</li>
 
-The pipe expression is quite popular by [Laravel](https://laravel.com/docs/validation) validation engine and also adopted by [Indicative](http://indicative.adonisjs.com/) a validation engine for Node.js
+<li>
+  The `args` property in `toArray` methods is always an array. Earlier it used to be string for single values and array for multiple.
+</li>
 
-#### Pipe To Array
-```javascript
-const haye = require('haye')
+<li>
+  The value in `key/value` pair is always an array. Earlier it used to be string for single values and array for multiple.
+</li>
+</ol>
 
-const expression = 'required|min:10|max:20'
-const parsedExp = haye.fromPipe(expression).toArray()
+</details>
+
+### Pipe expression
+The pipe based expression is very popular in Laravel community, due to their [Validation engine](https://laravel.com/docs/validation), and same is adopted by [Indicative](http://indicative.adonisjs.com).
+
+#### Syntax example:
+
+```js
+required|email|max:4|range:10,30
 ```
 
-Returns 
+1. Each item is separated by `|`
+2. The values are defined after `:`
+3. Multiple values are separated by `,`.
+4. White spaces in keys are trimmed.
 
-```javascript
+---
+
+### Qs expression
+The query string expression is almost similar to the URL query string, with couple of small modifications to make the expression readable.
+
+#### Syntax example:
+```
+required,email,max=4,range=[1, 10]
+```
+
+1. Each item is separated by `,`
+2. The values are defined after `=`
+3. Multiple values are separated by `,` inside `[]`.
+4. White spaces in keys are trimmed.
+
+## Installation
+
+The module is available on npm
+
+```bash
+npm i haye
+
+# yarn
+yarn add haye
+```
+
+## Usage
+Below is the bunch of usage examples
+
+#### Pipe -> Array
+
+```js
+const haye = require('haye')
+const expression = 'required|email:unique,users'
+
+const parsed = haye.fromPipe(expression).toArray()
+```
+
+Output
+```js
 [
-  {
-    name: 'required',
-    args: null
-  }, {
-    name: 'min',
-    args: '10'
-  }, {
-    name: 'max',
-    args: '20'
-  }
+  { name: 'required', args: [] },
+  { name: 'email', args: ['unique', 'users'] }
 ]
 ```
 
-#### Pipe To JSON
+#### Pipe -> JSON
 
-Also you can change the output format from an array to an object.
-
-
-```javascript
+```js
 const haye = require('haye')
+const expression = 'required|email:unique,users'
 
-const expression = 'required|min:10|max:20'
-const parsedExp = haye.fromPipe(expression).toJSON()
+const parsed = haye.fromPipe(expression).toJSON()
 ```
 
-Returns
-
-```javascript
+Output
+```js
 {
-  required: null,
-  min: '10',
-  max: '20'
+  required: [],
+  email: [ 'unique', 'users' ]
 }
 ```
 
-#### How about multiple values next to key?
+#### Qs -> Array
 
-```javascript
+```js
 const haye = require('haye')
+const expression = 'required,email=[unique,users]'
 
-const expression = 'ranger:10,20'
-const parsedExp = haye.fromPipe(expression).toArray()
+const parsed = haye.fromQS(expression).toArray()
 ```
 
-Returns
-
-```javascript
-[{
-  name: 'range',
-  args: ['10', '20']
-}]
-```
-
-The `toJSON` method on the same expression will return
-
-```javascript
-{
-  range: ['10', '20']
-}
-```
-
-### QS Expression
-The reason I call it a `QS` expression, since it is quite similar to the query string instead you use `,` as a seperator instea of `&`.
-
-#### QS To Array
-
-```javascript
-const haye = require('haye')
-
-const expression = 'username=virk,firstname=harminder,lastname=virk'
-const parsedExp = haye.fromQS(expression).toArray()
-```
-
-Returns 
-
-```javascript
+Output
+```js
 [
-  {
-    name: 'username',
-    args: 'virk'
-  }, {
-    name: 'firstname',
-    args: 'harminder'
-  }, {
-    name: 'lastname',
-    args: 'virk'
-  }
+  { name: 'required', args: [] },
+  { name: 'email', args: ['unique', 'users'] }
 ]
 ```
 
-#### QS To JSON
+#### Qs -> JSON
 
-Ofcourse you can get values back to a flat Object too.
-
-```javascript
+```js
 const haye = require('haye')
+const expression = 'required,email=[unique,users]'
 
-const expression = 'username=virk,firstname=harminder,lastname=virk'
-const parsedExp = haye.fromQS(expression).toJSON()
+const parsed = haye.fromQS(expression).toJSON()
 ```
 
-Returns 
-
-```javascript
+Output
+```js
 {
-  username: 'virk',
-  firstname: 'harminder',
-  lastname: 'virk'
+  required: [],
+  email: [ 'unique', 'users' ]
 }
-```
-
-#### Multiple Values
-You can also define multiple values and they will be returned back as array.
-
-```javascript
-const haye = require('haye')
-
-const expression = 'username=virk,likes=[javascript,ruby,haskell]'
-const parsedExp = haye.fromQS(expression).toArray()
-```
-
-Returns 
-
-```javascript
-[
-  {
-    name: 'username',
-    args: 'virk'
-  }, {
-    name: 'likes',
-    args: ['javascript', 'ruby', 'haskell']
-  }
-]
-```
-
-And `toJSON` will return a flat object with likes as an array.
-
-```javascript
-{
-  username: 'virk',
-  likes: ['javascriot', 'ruby', 'haskell']
-}
-```
-
-## Values To Expression (VICE-VERSA)
-
-Also you can convert your arrays and objects back to `pipe` or `QS` expression.
-
-### Pipe Expression
-
-#### Array To Pipe
-
-```javascript
-const haye = require('haye')
-const rules = [
-  {
-    name: 'min',
-    args: 4
-  }, {
-    name: 'max',
-    args: 10
-  }
-]
-
-haye.fromArray(rules).toPipe()
-```
-
-Returns
-
-```
-'min:4|max:10'
-```
-
-#### JSON To Pipe
-
-```javascript
-const haye = require('haye')
-const rules = {
-  min: 4,
-  max:10
-}
-
-haye.fromJSON(rules).toPipe()
-```
-
-Returns
-
-```
-'min:4|max:10'
-```
-
-### QS Expression
-
-Just like the pipe expression, you can convert your arrays and objects to QS expression too.
-
-#### Array To QS
-
-```javascript
-const haye = require('haye')
-const user = [
-  {
-    name: 'username',
-    args: 'virk'
-  }, {
-    name: 'likes',
-    args: ['js', 'ruby']
-  }
-]
-
-haye.fromArray(rules).toQS()
-```
-
-Returns
-
-```
-username=virk,likes=[js,ruby]
-```
-
-#### JSON To QS
-
-```javascript
-const haye = require('haye')
-const user = {
-  username: 'virk',
-  likes: ['js', 'ruby']
-}
-
-haye.fromJSON(rules).toQS()
-```
-
-Returns
-
-```
-username=virk,likes=[js,ruby]
 ```
