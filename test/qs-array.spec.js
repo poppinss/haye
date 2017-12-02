@@ -1,8 +1,8 @@
 'use strict'
 
 const test = require('japa')
-const Qs = require('../src/Parsers/Qs')
-const ArrayPresenter = require('../src/Presenters/ArrayPresenter')
+const Qs = require('../dist/haye-qs')
+const ArrayPresenter = require('../dist/haye-array-presenter')
 
 test.group('Qs - Array', () => {
   test('should parse a query string to an array', (assert) => {

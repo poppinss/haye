@@ -2,10 +2,15 @@
   "name": "haye",
   "version": "2.0.0",
   "description": "Haye is a super fast string based expression parser for Node.js",
-  "main": "index.js",
+  "main": "dist/haye.js",
+  "module": "dist/haye.es.js",
+  "browser": "dist/haye.browser.js",
+  "files": ["dist"],
   "scripts": {
-    "pretest": "npm run lint",
+    "prepublish": "npm run build",
+    "pretest": "npm run lint && npm run build",
     "test": "japa",
+    "build": "rollup -c",
     "lint": "standard src/**/*.js index.js test/**/*.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "benchmark": "matcha benchmarks/index.js"
@@ -24,7 +29,10 @@
     "cz-conventional-changelog": "^2.1.0",
     "japa": "^1.0.5",
     "japa-cli": "^1.0.1",
-    "standard": "^10.0.3"
+    "rollup": "^0.52.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "standard": "^10.0.3",
+    "uglify-es": "^3.2.0"
   },
   "config": {
     "commitizen": {

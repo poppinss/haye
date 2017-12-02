@@ -7,7 +7,7 @@
 * file that was distributed with this source code.
 */
 
-module.exports = function (chars, presenter) {
+export default function Qs (chars, presenter) {
   presenter.add()
   const charsLength = chars.length
 

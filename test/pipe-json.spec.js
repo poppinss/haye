@@ -1,8 +1,8 @@
 'use strict'
 
 const test = require('japa')
-const Pipe = require('../src/Parsers/Pipe')
-const JsonPresenter = require('../src/Presenters/JsonPresenter')
+const Pipe = require('../dist/haye-pipe')
+const JsonPresenter = require('../dist/haye-json-presenter')
 
 test.group('Pipe - JSON', () => {
   test('should parse a piped string to an array', (assert) => {

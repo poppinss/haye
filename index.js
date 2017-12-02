@@ -7,12 +7,12 @@
  * file that was distributed with this source code.
 */
 
-const Pipe = require('./src/Parsers/Pipe')
-const Qs = require('./src/Parsers/Qs')
-const ArrayPresenter = require('./src/Presenters/ArrayPresenter')
-const JsonPresenter = require('./src/Presenters/JsonPresenter')
+import Pipe from './src/Parsers/Pipe'
+import Qs from './src/Parsers/Qs'
+import ArrayPresenter from './src/Presenters/ArrayPresenter'
+import JsonPresenter from './src/Presenters/JsonPresenter'
 
-module.exports = {
+export default {
   fromPipe (expression) {
     return {
       toArray: () => Pipe(expression, new ArrayPresenter()),
