@@ -21,14 +21,19 @@ haye #qsToJson x 303,482 ops/sec ±1.10% (89 runs sampled)
 
 <details>
 <summary> Comparison with 1.0.1 </summary>
+<h4> Legacy </h4>
 <pre>
 <code>
 219,138 op/s » haye #pipeToArray #legacy
 170,068 op/s » haye #pipeToJson #legacy
 147,594 op/s » haye #qsToArray #legacy
 121,094 op/s » haye #qsToJson #legacy
-
-
+</code>
+</pre>
+  
+<h4> Latest </h4>
+<pre>
+<code>
 747,298 op/s » haye #pipeToArray
 363,152 op/s » haye #pipeToJson
 742,310 op/s » haye #qsToArray

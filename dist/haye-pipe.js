@@ -1,0 +1,1 @@
+"use strict";function Pipe(e,t){t.add();const a=e.length;let n=0,d="name";for(;n<a;){const a=e[n++],o=a.charCodeAt(0);58===o||44===o?(d="arg",t.shiftValue()):124===o?(d="name",t.add()):"arg"===d?t.appendValue(a):t.appendKey(a,o)}return t.toJSON()}module.exports=Pipe;
