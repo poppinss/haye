@@ -1,6 +1,6 @@
 {
   "name": "haye",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Haye is a super fast string based expression parser for Node.js",
   "main": "dist/haye.js",
   "module": "dist/haye.es.js",
