@@ -5,7 +5,9 @@
   "main": "dist/haye.js",
   "module": "dist/haye.es.js",
   "browser": "dist/haye.browser.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepublish": "npm run build",
     "pretest": "npm run lint && npm run build",
@@ -24,12 +26,16 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "benchmark": "^2.1.4",
     "coveralls": "^3.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "japa": "^1.0.5",
     "japa-cli": "^1.0.1",
     "rollup": "^0.52.0",
+    "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-uglify": "^2.0.1",
     "standard": "^10.0.3",
     "uglify-es": "^3.2.0"

@@ -1,1 +1,1 @@
-var hayePipe=function(){"use strict";return function(e,a){a.add();const n=e.length;let t=0,r="name";for(;t<n;){const n=e[t++],d=n.charCodeAt(0);58===d||44===d?(r="arg",a.shiftValue()):124===d?(r="name",a.add()):"arg"===r?a.appendValue(n):a.appendKey(n,d)}return a.toJSON()}}();
+var hayePipe=function(){"use strict";return function(a,e){e.add();for(var r=a.length,n=0,t="name";n<r;){var d=a[n++],u=d.charCodeAt(0);58===u||44===u?(t="arg",e.shiftValue()):124===u?(t="name",e.add()):"arg"===t?e.appendValue(d):e.appendKey(d,u)}return e.toJSON()}}();
