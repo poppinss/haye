@@ -1,8 +1,25 @@
-import uglify from 'rollup-plugin-uglify'
+import { uglify } from 'rollup-plugin-uglify'
 import { minify } from 'uglify-es'
+import babel from 'rollup-plugin-babel'
 
 const plugins = [
-  uglify({}, minify)
+  uglify({}, minify),
+  babel({
+    babelrc: false,
+    exclude: 'node_modules/**',
+    presets: [
+      [
+        'env',
+        {
+          modules: false,
+          targets: {
+            browsers: ['last 2 versions', 'ie 8']
+          }
+        }
+      ]
+    ],
+    plugins: ['external-helpers']
+  })
 ]
 
 export default [

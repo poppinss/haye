@@ -1,13 +1,15 @@
 {
   "name": "haye",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Haye is a super fast string based expression parser for Node.js",
   "main": "dist/haye.js",
   "module": "dist/haye.es.js",
   "browser": "dist/haye.browser.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "pretest": "npm run lint && npm run build",
     "test": "japa",
     "build": "rollup -c",
@@ -24,15 +26,19 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^2.1.0",
-    "japa": "^1.0.5",
+    "japa": "^1.0.6",
     "japa-cli": "^1.0.1",
-    "rollup": "^0.52.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "standard": "^10.0.3",
-    "uglify-es": "^3.2.0"
+    "rollup": "^0.60.7",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-uglify": "^4.0.0",
+    "standard": "^11.0.1",
+    "uglify-es": "^3.3.9"
   },
   "config": {
     "commitizen": {
