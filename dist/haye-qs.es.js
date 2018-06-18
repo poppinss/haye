@@ -1,1 +1,1 @@
-function Qs(e,a){a.add();const t=e.length;let n=0,d="name",o=!1;for(;n<t;){const t=e[n++],r=t.charCodeAt(0);91===r?o=!0:93===r?o=!1:61===r||44===r&&o?(d="arg",a.shiftValue()):44===r?(d="name",a.add()):"arg"===d?a.appendValue(t):a.appendKey(t,r)}return a.toJSON()}export default Qs;
+function Qs(a,e){e.add();for(var r=a.length,d=0,n="name",t=!1;d<r;){var o=a[d++],p=o.charCodeAt(0);91===p?t=!0:93===p?t=!1:61===p||44===p&&t?(n="arg",e.shiftValue()):44===p?(n="name",e.add()):"arg"===n?e.appendValue(o):e.appendKey(o,p)}return e.toJSON()}export default Qs;

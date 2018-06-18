@@ -1,1 +1,1 @@
-function Pipe(e,a){a.add();const t=e.length;let n=0,d="name";for(;n<t;){const t=e[n++],o=t.charCodeAt(0);58===o||44===o?(d="arg",a.shiftValue()):124===o?(d="name",a.add()):"arg"===d?a.appendValue(t):a.appendKey(t,o)}return a.toJSON()}export default Pipe;
+function Pipe(a,e){e.add();for(var r=a.length,d=0,n="name";d<r;){var t=a[d++],p=t.charCodeAt(0);58===p||44===p?(n="arg",e.shiftValue()):124===p?(n="name",e.add()):"arg"===n?e.appendValue(t):e.appendKey(t,p)}return e.toJSON()}export default Pipe;
