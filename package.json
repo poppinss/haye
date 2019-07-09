@@ -34,7 +34,7 @@
     "cz-conventional-changelog": "^2.1.0",
     "japa": "^1.0.6",
     "japa-cli": "^1.0.1",
-    "rollup": "^0.60.7",
+    "rollup": "^1.16.7",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-uglify": "^4.0.0",
     "standard": "^11.0.1",
