@@ -31,7 +31,7 @@
     "babel-preset-env": "^1.7.0",
     "benchmark": "^2.1.4",
     "coveralls": "^3.0.1",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.1",
     "japa": "^1.0.6",
     "japa-cli": "^1.0.1",
     "rollup": "^0.60.7",
