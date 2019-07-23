@@ -32,7 +32,7 @@
     "benchmark": "^2.1.4",
     "coveralls": "^3.0.1",
     "cz-conventional-changelog": "^3.0.1",
-    "japa": "^1.0.6",
+    "japa": "^2.0.10",
     "japa-cli": "^1.0.1",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^3.0.4",
