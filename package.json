@@ -11,8 +11,8 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "pretest": "npm run lint && npm run build",
-    "test": "japa",
-    "build": "rollup -c",
+    "test": "node japaFile.js",
+    "build": "rollup -c rollup.config.js",
     "lint": "standard src/**/*.js index.js test/**/*.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "benchmark": "matcha benchmarks/index.js"
@@ -26,19 +26,16 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
+    "@babel/core": "^7.13.10",
+    "@rollup/plugin-babel": "^5.3.0",
     "babel-preset-env": "^1.7.0",
     "benchmark": "^2.1.4",
-    "coveralls": "^3.0.1",
-    "cz-conventional-changelog": "^3.0.1",
-    "japa": "^1.0.6",
-    "japa-cli": "^1.0.1",
-    "rollup": "^1.17.0",
-    "rollup-plugin-babel": "^3.0.4",
-    "rollup-plugin-uglify": "^4.0.0",
-    "standard": "^11.0.1",
-    "uglify-es": "^3.3.9"
+    "coveralls": "^3.1.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "japa": "^3.1.1",
+    "rollup": "^2.42.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "standard": "^16.0.3"
   },
   "config": {
     "commitizen": {

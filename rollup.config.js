@@ -1,10 +1,10 @@
-import { uglify } from 'rollup-plugin-uglify'
-import { minify } from 'uglify-es'
-import babel from 'rollup-plugin-babel'
+import { terser } from 'rollup-plugin-terser'
+import { babel } from '@rollup/plugin-babel'
 
 const plugins = [
-  uglify({}, minify),
+  terser(),
   babel({
+    babelHelpers: 'bundled',
     babelrc: false,
     exclude: 'node_modules/**',
     presets: [
@@ -17,8 +17,7 @@ const plugins = [
           }
         }
       ]
-    ],
-    plugins: ['external-helpers']
+    ]
   })
 ]
 
@@ -28,19 +27,16 @@ export default [
     output: [
       {
         file: 'dist/haye.js',
+        exports: 'default',
         format: 'cjs',
         name: 'haye'
       },
       {
         file: 'dist/haye.es.js',
+        exports: 'default',
         format: 'es',
         name: 'haye'
       },
-      {
-        file: 'dist/haye.browser.js',
-        format: 'iife',
-        name: 'haye'
-      }
     ],
     plugins: plugins
   },
@@ -49,19 +45,16 @@ export default [
     output: [
       {
         file: 'dist/haye-qs.js',
+        exports: 'default',
         format: 'cjs',
         name: 'hayeQs'
       },
       {
         file: 'dist/haye-qs.es.js',
+        exports: 'default',
         format: 'es',
         name: 'hayeQs'
       },
-      {
-        file: 'dist/haye-qs.browser.js',
-        format: 'iife',
-        name: 'hayeQs'
-      }
     ],
     plugins: plugins
   },
@@ -70,19 +63,16 @@ export default [
     output: [
       {
         file: 'dist/haye-pipe.js',
+        exports: 'default',
         format: 'cjs',
         name: 'hayePipe'
       },
       {
         file: 'dist/haye-pipe.es.js',
+        exports: 'default',
         format: 'es',
         name: 'hayePipe'
       },
-      {
-        file: 'dist/haye-pipe.browser.js',
-        format: 'iife',
-        name: 'hayePipe'
-      }
     ],
     plugins: plugins
   },
@@ -91,19 +81,16 @@ export default [
     output: [
       {
         file: 'dist/haye-array-presenter.js',
+        exports: 'default',
         format: 'cjs',
         name: 'hayeArrayPresenter'
       },
       {
         file: 'dist/haye-array-presenter.es.js',
+        exports: 'default',
         format: 'es',
         name: 'hayeArrayPresenter'
       },
-      {
-        file: 'dist/haye-array-presenter.browser.js',
-        format: 'iife',
-        name: 'hayeArrayPresenter'
-      }
     ],
     plugins: plugins
   },
@@ -112,19 +99,16 @@ export default [
     output: [
       {
         file: 'dist/haye-json-presenter.js',
+        exports: 'default',
         format: 'cjs',
         name: 'hayeJsonPresenter'
       },
       {
         file: 'dist/haye-json-presenter.es.js',
+        exports: 'default',
         format: 'es',
         name: 'hayeJsonPresenter'
       },
-      {
-        file: 'dist/haye-json-presenter.browser.js',
-        format: 'iife',
-        name: 'hayeJsonPresenter'
-      }
     ],
     plugins: plugins
   }
